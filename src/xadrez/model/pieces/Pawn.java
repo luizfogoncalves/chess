@@ -11,6 +11,8 @@ package xadrez.model.pieces;
 
 import java.awt.Color;
 import java.util.*;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import xadrez.model.game.Chess;
 import xadrez.model.game.Piece;
 import xadrez.model.game.Position;
@@ -32,9 +34,12 @@ public class Pawn extends Piece {
     }
     
     /** Creates a new instance of Pawn */
-    public Pawn(Color cor, Position pos) {
-        super("Pawn",cor,pos);
+    public Pawn(Color cor, Position pos, ImageView imageView) {
+        super("Pawn",cor,pos, imageView);
         this.setPosicaoInicial(pos);
+        imageView.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+            System.out.println("teste");
+        });
     }
     
     /* Peao nao utiliza este metodo */

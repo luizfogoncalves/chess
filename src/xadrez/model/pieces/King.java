@@ -11,6 +11,8 @@ package xadrez.model.pieces;
 
 import java.awt.Color;
 import java.util.*;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import xadrez.model.game.Board;
 import xadrez.model.game.Chess;
 import xadrez.model.game.Piece;
@@ -31,9 +33,12 @@ public class King extends Piece {
     }
     
     /** Creates a new instance of King */
-    public King(Color cor, Position pos) {
-        super("King",cor,pos);
+    public King(Color cor, Position pos, ImageView imageView) {
+        super("King",cor,pos, imageView);
         this.setNotMovedYet(true);
+        imageView.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+            System.out.println("teste");
+        });
     }
     
     public boolean isNotMovedYet() {
@@ -90,7 +95,7 @@ public class King extends Piece {
             if (this.isNotMovedYet() && (destino.equals(roque1) ||
                     destino.equals(roque2)) ) {
                 
-                Board cloneBoard = board.getBoardClone();
+//                Board cloneBoard = board.getBoardClone();
                 
                 if ((destino.equals(roque1) && corRei == Color.WHITE)) {
                     offset = 1; // vai mover p/ direita, pois � roque 1

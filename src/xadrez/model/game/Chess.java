@@ -26,7 +26,9 @@ public class Chess {
     Board board;
     
     /* Pe�as mortas */
-    ArrayList <Piece>deadpieces;
+    ArrayList <Piece> deadpieces;
+    
+    ArrayList <Piece> pieces;
     
     /* Players */
     Player player1;
@@ -119,42 +121,42 @@ public class Chess {
     private void prepareBoard(){
         
         //cria pe�es
-        for (int i=0;i<8;i++){
-            // Cria um pe�o preto e o coloca em uma posi��o, o pe�o tbm recebe a sua posi��o no board
-            this.board.setPosition( new Pawn(Color.black, new Position(1,i) ) , new Position(1,i) );
-            
-            // Cria um pe�o brancos e o coloca em uma posi��o, o pe�o tbm recebe a sua posi��o no board
-            this.board.setPosition( new Pawn(Color.white, new Position(6,i) ) , new Position(6,i) );
-        }
-        // Cria as torres e o coloca em uma posi��o, a torre tbm recebe a sua posi��o no board
-        this.board.setPosition( new Rook(Color.black, new Position(0,0) ) , new Position(0,0) );
-        this.board.setPosition( new Rook(Color.black, new Position(0,7) ) , new Position(0,7) );
-        
-        this.board.setPosition( new Rook(Color.white, new Position(7,0) ) , new Position(7,0) );
-        this.board.setPosition( new Rook(Color.white, new Position(7,7) ) , new Position(7,7) );
-        
-        // Cria os cavalos e o coloca em uma posi��o, o cavalo tbm recebe a sua posi��o no board
-        this.board.setPosition( new Knight(Color.black, new Position(0,1) ) , new Position(0,1) );
-        this.board.setPosition( new Knight(Color.black, new Position(0,6) ) , new Position(0,6) );
-        
-        this.board.setPosition( new Knight(Color.white, new Position(7,1) ) , new Position(7,1) );
-        this.board.setPosition( new Knight(Color.white, new Position(7,6) ) , new Position(7,6) );
-        
-        // Cria os bispos e o coloca em uma posi��o, o bispo tbm recebe a sua posi��o no board
-        this.board.setPosition( new Bishop(Color.black, new Position(0,2) ) , new Position(0,2) );
-        this.board.setPosition( new Bishop(Color.black, new Position(0,5) ) , new Position(0,5) );
-        
-        this.board.setPosition( new Bishop(Color.white, new Position(7,2) ) , new Position(7,2) );
-        this.board.setPosition( new Bishop(Color.white, new Position(7,5) ) , new Position(7,5) );
-        
-        
-        // Cria as Rainhas e as coloca em uma posi��o, a rainha tbm recebe a sua posi��o no board
-        this.board.setPosition( new Queen(Color.black, new Position(0,3) ) , new Position(0,3) );
-        this.board.setPosition( new Queen(Color.white, new Position(7,3) ) , new Position(7,3) );
-        
-        // Cria os Reis e os coloca em uma posi��o, o Rei tbm recebe a sua posi��o no board
-        this.board.setPosition( new King(Color.black, new Position(0,4) ) , new Position(0,4) );
-        this.board.setPosition( new King(Color.white, new Position(7,4) ) , new Position(7,4) );
+//        for (int i=0;i<8;i++){
+//            // Cria um pe�o preto e o coloca em uma posi��o, o pe�o tbm recebe a sua posi��o no board
+//            this.board.setPosition( new Pawn(Color.black, new Position(1,i) ) , new Position(1,i) );
+//            
+//            // Cria um pe�o brancos e o coloca em uma posi��o, o pe�o tbm recebe a sua posi��o no board
+//            this.board.setPosition( new Pawn(Color.white, new Position(6,i) ) , new Position(6,i) );
+//        }
+//        // Cria as torres e o coloca em uma posi��o, a torre tbm recebe a sua posi��o no board
+//        this.board.setPosition( new Rook(Color.black, new Position(0,0) ) , new Position(0,0) );
+//        this.board.setPosition( new Rook(Color.black, new Position(0,7) ) , new Position(0,7) );
+//        
+//        this.board.setPosition( new Rook(Color.white, new Position(7,0) ) , new Position(7,0) );
+//        this.board.setPosition( new Rook(Color.white, new Position(7,7) ) , new Position(7,7) );
+//        
+//        // Cria os cavalos e o coloca em uma posi��o, o cavalo tbm recebe a sua posi��o no board
+//        this.board.setPosition( new Knight(Color.black, new Position(0,1) ) , new Position(0,1) );
+//        this.board.setPosition( new Knight(Color.black, new Position(0,6) ) , new Position(0,6) );
+//        
+//        this.board.setPosition( new Knight(Color.white, new Position(7,1) ) , new Position(7,1) );
+//        this.board.setPosition( new Knight(Color.white, new Position(7,6) ) , new Position(7,6) );
+//        
+//        // Cria os bispos e o coloca em uma posi��o, o bispo tbm recebe a sua posi��o no board
+//        this.board.setPosition( new Bishop(Color.black, new Position(0,2) ) , new Position(0,2) );
+//        this.board.setPosition( new Bishop(Color.black, new Position(0,5) ) , new Position(0,5) );
+//        
+//        this.board.setPosition( new Bishop(Color.white, new Position(7,2) ) , new Position(7,2) );
+//        this.board.setPosition( new Bishop(Color.white, new Position(7,5) ) , new Position(7,5) );
+//        
+//        
+//        // Cria as Rainhas e as coloca em uma posi��o, a rainha tbm recebe a sua posi��o no board
+//        this.board.setPosition( new Queen(Color.black, new Position(0,3) ) , new Position(0,3) );
+//        this.board.setPosition( new Queen(Color.white, new Position(7,3) ) , new Position(7,3) );
+//        
+//        // Cria os Reis e os coloca em uma posi��o, o Rei tbm recebe a sua posi��o no board
+//        this.board.setPosition( new King(Color.black, new Position(0,4) ) , new Position(0,4) );
+//        this.board.setPosition( new King(Color.white, new Position(7,4) ) , new Position(7,4) );
         
     }
     
@@ -469,15 +471,15 @@ public class Chess {
                 "ham");
         
         if (name.equalsIgnoreCase("Rainha")){
-            this.board.setPosition(new Queen(piece.getColor(), piece.getPosition()), piece.getPosition());
+//            this.board.setPosition(new Queen(piece.getColor(), piece.getPosition()), piece.getPosition());
             
         }else if(name.equalsIgnoreCase("Torre")){
-            this.board.setPosition(new Rook(piece.getColor(), piece.getPosition()),piece.getPosition());
+//            this.board.setPosition(new Rook(piece.getColor(), piece.getPosition()),piece.getPosition());
             
         }else if(name.equalsIgnoreCase("Bispo")){
-            this.board.setPosition(new Bishop(piece.getColor(), piece.getPosition()),piece.getPosition());
+//            this.board.setPosition(new Bishop(piece.getColor(), piece.getPosition()),piece.getPosition());
         }else if(name.equalsIgnoreCase("Cavalo")){
-            this.board.setPosition(new Knight(piece.getColor(), piece.getPosition()),piece.getPosition());
+//            this.board.setPosition(new Knight(piece.getColor(), piece.getPosition()),piece.getPosition());
         }
         
     }

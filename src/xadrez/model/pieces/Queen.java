@@ -11,6 +11,8 @@ package xadrez.model.pieces;
 
 import java.awt.Color;
 import java.util.*;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import xadrez.model.game.Board;
 import xadrez.model.game.Chess;
 import xadrez.model.game.Piece;
@@ -28,8 +30,11 @@ public class Queen extends Piece {
     }
     
     /** Creates a new instance of Queen */
-    public Queen(Color cor, Position pos) {
-        super("Queen",cor,pos);
+    public Queen(Color cor, Position pos, ImageView imageView) {
+        super("Queen",cor,pos, imageView);
+        imageView.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+            System.out.println("teste");
+        });
     }
     
     /**

@@ -89,23 +89,23 @@ public class Board {
                 if (this.getPieceAtPosition(new Position(i,j)) != null) {
                     Piece p = this.getPieceAtPosition(new Position(i,j));
                     if (p instanceof Bishop) {
-                        Bishop b = new Bishop(p.getColor(),p.getPosition());
-                        board.setPosition(b,b.getPosition());                        
+//                        Bishop b = new Bishop(p.getColor(),p.getPosition());
+//                        board.setPosition(b,b.getPosition());                        
                     } else if (p instanceof King) {
-                        King k = new King(p.getColor(),p.getPosition());
-                        board.setPosition(k,k.getPosition());
+//                        King k = new King(p.getColor(),p.getPosition());
+//                        board.setPosition(k,k.getPosition());
                     } else if (p instanceof Knight) {
-                        Knight n = new Knight(p.getColor(),p.getPosition());
-                        board.setPosition(n,n.getPosition());
+//                        Knight n = new Knight(p.getColor(),p.getPosition());
+//                        board.setPosition(n,n.getPosition());
                     } else if (p instanceof Pawn) {
-                        Pawn pa = new Pawn(p.getColor(),p.getPosition());
-                        board.setPosition(pa,pa.getPosition());
+//                        Pawn pa = new Pawn(p.getColor(),p.getPosition());
+//                        board.setPosition(pa,pa.getPosition());
                     } else if (p instanceof Queen) {
-                        Queen q = new Queen(p.getColor(),p.getPosition());
-                        board.setPosition(q,q.getPosition());
+//                        Queen q = new Queen(p.getColor(),p.getPosition());
+//                        board.setPosition(q,q.getPosition());
                     } else if (p instanceof Rook) {                        
-                        Rook r = new Rook(p.getColor(),p.getPosition());
-                        board.setPosition(r,r.getPosition());
+//                        Rook r = new Rook(p.getColor(),p.getPosition());
+//                        board.setPosition(r,r.getPosition());
                     }
                 } else {
                     board.setPosition(null,new Position(i,j));

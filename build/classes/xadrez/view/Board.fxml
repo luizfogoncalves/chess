@@ -9,14 +9,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="1002.0" prefWidth="1265.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="xadrez.view.TabuleiroController">
+<AnchorPane fx:id="AnchorPane" prefHeight="1002.0" prefWidth="1265.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="xadrez.view.BoardController">
     <stylesheets>
-        <URL value="@tabuleiro.css" />
+        <URL value="@board.css" />
     </stylesheets>
     <children>
         <BorderPane layoutX="14.0" layoutY="14.0" prefHeight="800.0" prefWidth="800.0" style="-fx-border-color: #000; -fx-border-width: 10;">
             <center>
-                <GridPane id="gridPane" prefHeight="638.0" prefWidth="697.0" BorderPane.alignment="CENTER">
+                <GridPane fx:id="gridPane" prefHeight="638.0" prefWidth="697.0" BorderPane.alignment="CENTER">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
@@ -198,162 +198,162 @@
                                 <Image url="@../resources/images/black.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="80.0" fitWidth="80.0" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                        <ImageView fx:id="peao1Jogador2" fitHeight="80.0" fitWidth="80.0" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/peao.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                        <ImageView fx:id="peao2Jogador2" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/peao.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                        <ImageView fx:id="peao3Jogador2" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/peao.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                        <ImageView fx:id="peao4Jogador2" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/peao.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                        <ImageView fx:id="peao5Jogador2" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/peao.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                        <ImageView fx:id="peao6Jogador2" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/peao.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                        <ImageView fx:id="peao7Jogador2" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/peao.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                        <ImageView fx:id="peao8Jogador2" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/peao.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="80.0" fitWidth="80.0" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+                        <ImageView fx:id="torre1Jogador2" fitHeight="80.0" fitWidth="80.0" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/torre.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+                        <ImageView fx:id="torre2Jogador2" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/torre.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+                        <ImageView fx:id="cavalo1Jogador2" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/cavalo.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+                        <ImageView fx:id="bispo1Jogador2" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/bispo.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+                        <ImageView fx:id="reiJogador2" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/rei.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+                        <ImageView fx:id="rainhaJogador2" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/rainha.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+                        <ImageView fx:id="cavalo2Jogador2" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/cavalo.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+                        <ImageView fx:id="bispo2Jogador2" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/bispo.png" />
                             </image>
                         </ImageView>
-                        <ImageView id="peao1Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                        <ImageView fx:id="peao1Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/two/bispo.png" />
                             </image>
                         </ImageView>
-                        <ImageView id="peao2Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                        <ImageView fx:id="peao2Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/two/bispo.png" />
                             </image>
                         </ImageView>
-                        <ImageView id="peao3Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                        <ImageView fx:id="peao3Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/two/bispo.png" />
                             </image>
                         </ImageView>
-                        <ImageView id="peao4Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                        <ImageView fx:id="peao4Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/two/bispo.png" />
                             </image>
                         </ImageView>
-                        <ImageView id="peao5Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                        <ImageView fx:id="peao5Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/two/bispo.png" />
                             </image>
                         </ImageView>
-                        <ImageView id="peao6Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                        <ImageView fx:id="peao6Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/two/bispo.png" />
                             </image>
                         </ImageView>
-                        <ImageView id="peao7Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                        <ImageView fx:id="peao7Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/two/bispo.png" />
                             </image>
                         </ImageView>
-                        <ImageView id="peao8Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                        <ImageView fx:id="peao8Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/two/bispo.png" />
                             </image>
                         </ImageView>
-                        <ImageView id="torre1Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <ImageView fx:id="torre1Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/two/torre.png" />
                             </image>
                         </ImageView>
-                        <ImageView id="torre2Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <ImageView fx:id="torre2Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/two/torre.png" />
                             </image>
                         </ImageView>
-                        <ImageView id="cavalo1Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <ImageView fx:id="cavalo1Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/two/cavalo.png" />
                             </image>
                         </ImageView>
-                        <ImageView id="cavalo2Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <ImageView fx:id="cavalo2Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/two/cavalo.png" />
                             </image>
                         </ImageView>
-                        <ImageView id="bispo1Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <ImageView fx:id="bispo1Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/two/bispo.png" />
                             </image>
                         </ImageView>
-                        <ImageView id="bispo2Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <ImageView fx:id="bispo2Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/two/bispo.png" />
                             </image>
                         </ImageView>
-                        <ImageView id="reiJogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <ImageView fx:id="reiJogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/two/rei.png" />
                             </image>
                         </ImageView>
-                        <ImageView id="rainhaJogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <ImageView fx:id="rainhaJogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/two/rainha.png" />
                             </image>
@@ -373,14 +373,14 @@
                 <RowConstraints minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Text id="nameJogado2" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="141.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                <Text fx:id="nameJogado2" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="141.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                 <ImageView fitHeight="50.0" fitWidth="50.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                     <image>
                         <Image url="@../resources/images/pieces/espadas.png" />
                     </image>
                 </ImageView>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Jogador 2" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                <Text id="nameJogador1" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="141.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                <Text fx:id="nameJogador1" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="141.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Jogador 1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
             </children>
         </GridPane>
@@ -399,7 +399,7 @@
                 <Image url="@../resources/images/pieces/two/jogador1.png" />
             </image>
         </ImageView>
-        <ImageView id="jogador2" fitHeight="100.0" fitWidth="100.0" layoutX="881.0" layoutY="424.0" visible="false">
+        <ImageView fx:id="jogador2" fitHeight="100.0" fitWidth="100.0" layoutX="881.0" layoutY="424.0" visible="false">
             <image>
                 <Image url="@../resources/images/pieces/two/jogador2.png" />
             </image>
@@ -409,13 +409,13 @@
                 <Font size="25.0" />
             </font>
         </Text>
-        <HBox id="blockPecasMortas" layoutX="14.0" layoutY="888.0" prefHeight="100.0" prefWidth="820.0" />
-        <Text id="timerJogador1" layoutX="990.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="174.0">
+        <HBox fx:id="blockPecasMortas" layoutX="14.0" layoutY="888.0" prefHeight="100.0" prefWidth="820.0" />
+        <Text fx:id="timerJogador1" layoutX="990.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="174.0">
             <font>
                 <Font size="30.0" />
             </font>
         </Text>
-        <Text id="timerJogador2" layoutX="990.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" visible="false" wrappingWidth="174.0">
+        <Text fx:id="timerJogador2" layoutX="990.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" visible="false" wrappingWidth="174.0">
             <font>
                 <Font size="30.0" />
             </font>

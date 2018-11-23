@@ -13,6 +13,7 @@ import java.awt.Color;
 import java.util.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import xadrez.model.game.Board;
 import xadrez.model.game.Chess;
 import xadrez.model.game.Piece;
@@ -32,6 +33,9 @@ public class Bishop extends Piece {
     /** Creates a new instance of Pawn */
     public Bishop(Color cor, Position pos, ImageView imageView) {
         super("Bishop",cor,pos, imageView);
+        imageView.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+            System.out.println("teste");
+        });
     }
     
     public void setImage(Image image){

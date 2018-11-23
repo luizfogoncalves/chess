@@ -23,7 +23,7 @@ public class Xadrez extends Application {
     public void start(Stage stage) throws IOException {
         
         Stage stage1 = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("Tabuleiro.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Board.fxml"));
         stage1.setScene(new Scene(root));
         stage1.setTitle("Personal Settings");
         stage1.initModality(Modality.WINDOW_MODAL);

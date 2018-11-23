@@ -52,7 +52,6 @@ public abstract class Piece {
     public abstract ArrayList <Position> getPath(Position destino);
     public abstract ArrayList <Position> getPath(Position destino,Board board);
     public abstract ArrayList <Position> getPath(Position destino,Chess chess);
-    public abstract void setImage(Image image);
        
     /**
      * 
