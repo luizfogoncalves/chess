@@ -11,8 +11,11 @@ package xadrez.model.pieces;
 
 import java.awt.Color;
 import java.util.*;
+import javafx.event.EventHandler;
+import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import xadrez.model.game.Board;
 import xadrez.model.game.Chess;
 import xadrez.model.game.Piece;
@@ -33,11 +36,27 @@ public class King extends Piece {
     }
     
     /** Creates a new instance of King */
-    public King(Color cor, Position pos, ImageView imageView) {
-        super("King",cor,pos, imageView);
+    public King(Color cor, Position pos, ImageView imageView, GridPane gridPane) {
+        super("King",cor,pos, imageView, gridPane);
         this.setNotMovedYet(true);
-        imageView.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
-            System.out.println("teste");
+        imageView.addEventHandler(MouseEvent.MOUSE_PRESSED, (MouseEvent e) -> {
+
+            EventHandler<MouseEvent> object_clicked = new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent e) {
+
+                    for (Node node : gridPane.getChildren()) {
+                        if (node.getBoundsInParent().contains(e.getSceneX(), e.getSceneY())) {
+                            System.out.println("Node: " + node + " at " + GridPane.getRowIndex(node) + "/" + GridPane.getColumnIndex(node));
+                        }
+                    }
+                    gridPane.removeEventFilter(MouseEvent.MOUSE_PRESSED, this);
+                }
+            };
+
+            gridPane.addEventFilter(MouseEvent.MOUSE_PRESSED, object_clicked);
+
+//            gridPane;
         });
     }
     

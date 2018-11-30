@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
+import javafx.scene.layout.GridPane;
 import xadrez.model.game.Piece;
 
 /**
@@ -26,23 +27,31 @@ public abstract class Piece {
     /* Image */
     private ImageView imageView;
     
+    /* Matriz das peças */
+    private GridPane gridPane;
+    
+    private Board board;
+    
+    private boolean pieceRemoved = false;
+    
     /**
      * 
      * Creates a new instance of Piece
      */
     public Piece(String nome, Color cor) {
-       this( nome, cor, new Position(), new ImageView());            
+       this( nome, cor, new Position(), new ImageView(), new GridPane());            
     }
     
     /**
      * 
      * Creates a new instance of Piece
      */
-    public Piece(String nome, Color cor, Position pos, ImageView imageView) {
+    public Piece(String nome, Color cor, Position pos, ImageView imageView, GridPane gridPane) {
         this.name = nome;
         this.color = cor;
         this.position = pos; 
         this.imageView = imageView;
+        this.gridPane = gridPane;
     }
     
     /** 
@@ -98,9 +107,37 @@ public abstract class Piece {
     public void setImageView(ImageView imageView) {
         this.imageView = imageView;
     }
+
+    /**
+     * @return the board
+     */
+    public Board getBoard() {
+        return board;
+    }
+
+    /**
+     * @param board the board to set
+     */
+    public void setBoard(Board board) {
+        this.board = board;
+    }
+
+    /**
+     * @return the piceRemoved
+     */
+    public boolean isPieceRemoved() {
+        return pieceRemoved;
+    }
+
+    /**
+     * @param piceRemoved the piceRemoved to set
+     */
+    public void setPieceRemoved(boolean pieceRemoved) {
+        this.pieceRemoved = pieceRemoved;
+    }
     
 
-
+    
     
 
 }

@@ -5,7 +5,7 @@
             <url>src/xadrez/view/TabuleiroController.java</url>
             <bookmark id="1">
                 <name/>
-                <line>23</line>
+                <line>34</line>
                 <key/>
             </bookmark>
         </file>
@@ -13,21 +13,17 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/luizj/Documents/NetBeansProjects/Xadrez/src/model/control/PlayerTimeThread.java</file>
-            <file>file:/C:/Users/luizj/Documents/NetBeansProjects/Xadrez/src/xadrez/model/game/Position.java</file>
             <file>file:/C:/Users/luizj/Documents/NetBeansProjects/Xadrez/src/xadrez/view/Xadrez.java</file>
-            <file>file:/C:/Users/luizj/Documents/NetBeansProjects/Xadrez/src/model/utils/TypeMove.java</file>
-            <file>file:/C:/Users/luizj/Documents/NetBeansProjects/Xadrez/src/xadrez/view/tabuleiro.css</file>
             <file>file:/C:/Users/luizj/Documents/NetBeansProjects/Xadrez/src/xadrez/model/game/Board.java</file>
             <file>file:/C:/Users/luizj/Documents/NetBeansProjects/Xadrez/src/xadrez/model/game/Cell.java</file>
             <file>file:/C:/Users/luizj/Documents/NetBeansProjects/Xadrez/src/xadrez/model/pieces/Knight.java</file>
             <file>file:/C:/Users/luizj/Documents/NetBeansProjects/Xadrez/src/xadrez/model/pieces/Rook.java</file>
-            <file>file:/C:/Users/luizj/Documents/NetBeansProjects/Xadrez/src/model/utils/TypeLimitMove.java</file>
-            <file>file:/C:/Users/luizj/Documents/NetBeansProjects/Xadrez/src/model/utils/CellMod.java</file>
             <file>file:/C:/Users/luizj/Documents/NetBeansProjects/Xadrez/src/xadrez/model/pieces/Bishop.java</file>
+            <file>file:/C:/Users/luizj/Documents/NetBeansProjects/Xadrez/src/xadrez/view/Board.fxml</file>
+            <file>file:/C:/Users/luizj/Documents/NetBeansProjects/Xadrez/src/xadrez/view/board.css</file>
             <file>file:/C:/Users/luizj/Documents/NetBeansProjects/Xadrez/src/xadrez/model/pieces/King.java</file>
-            <file>file:/C:/Users/luizj/Documents/NetBeansProjects/Xadrez/src/xadrez/view/Tabuleiro.fxml</file>
+            <file>file:/C:/Users/luizj/Documents/NetBeansProjects/Xadrez/src/xadrez/view/BoardController.java</file>
             <file>file:/C:/Users/luizj/Documents/NetBeansProjects/Xadrez/src/xadrez/model/pieces/Queen.java</file>
-            <file>file:/C:/Users/luizj/Documents/NetBeansProjects/Xadrez/src/xadrez/view/TabuleiroController.java</file>
             <file>file:/C:/Users/luizj/Documents/NetBeansProjects/Xadrez/src/xadrez/model/game/Piece.java</file>
             <file>file:/C:/Users/luizj/Documents/NetBeansProjects/Xadrez/src/xadrez/model/game/Chess.java</file>
             <file>file:/C:/Users/luizj/Documents/NetBeansProjects/Xadrez/src/xadrez/model/pieces/Pawn.java</file>

@@ -18,187 +18,91 @@
             <center>
                 <GridPane fx:id="gridPane" prefHeight="638.0" prefWidth="697.0" BorderPane.alignment="CENTER">
                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                        <ColumnConstraints fx:id="coluna1" hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                        <ColumnConstraints fx:id="coluna2" hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                        <ColumnConstraints fx:id="coluna3" hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                        <ColumnConstraints fx:id="coluna4" hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                        <ColumnConstraints fx:id="coluna5" hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                        <ColumnConstraints fx:id="coluna6" hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                        <ColumnConstraints fx:id="coluna7" hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                        <ColumnConstraints fx:id="coluna8" hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                        <RowConstraints fx:id="linha1" maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                        <RowConstraints fx:id="linha2" maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                        <RowConstraints fx:id="linha3" maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                        <RowConstraints fx:id="linha4" maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                        <RowConstraints fx:id="linha5" maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                        <RowConstraints fx:id="linha6" maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                        <RowConstraints fx:id="linha7" maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                        <RowConstraints fx:id="linha8" maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <ImageView fitHeight="104.0" fitWidth="100.0" GridPane.columnIndex="2">
-                            <image>
-                                <Image url="@../resources/images/black.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="104.0" fitWidth="100.0" GridPane.columnIndex="5" GridPane.rowIndex="5">
-                            <image>
-                                <Image url="@../resources/images/black.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="104.0" fitWidth="100.0" GridPane.columnIndex="4">
-                            <image>
-                                <Image url="@../resources/images/black.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="104.0" fitWidth="100.0" GridPane.columnIndex="6">
-                            <image>
-                                <Image url="@../resources/images/black.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="104.0" fitWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                            <image>
-                                <Image url="@../resources/images/black.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="104.0" fitWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
-                            <image>
-                                <Image url="@../resources/images/black.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="104.0" fitWidth="100.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
-                            <image>
-                                <Image url="@../resources/images/black.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="104.0" fitWidth="100.0" GridPane.columnIndex="7" GridPane.rowIndex="1">
-                            <image>
-                                <Image url="@../resources/images/black.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="104.0" fitWidth="100.0" GridPane.rowIndex="2">
-                            <image>
-                                <Image url="@../resources/images/black.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="104.0" fitWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                            <image>
-                                <Image url="@../resources/images/black.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="104.0" fitWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
-                            <image>
-                                <Image url="@../resources/images/black.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="104.0" fitWidth="100.0" GridPane.columnIndex="6" GridPane.rowIndex="2">
-                            <image>
-                                <Image url="@../resources/images/black.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="104.0" fitWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                            <image>
-                                <Image url="@../resources/images/black.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="104.0" fitWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
-                            <image>
-                                <Image url="@../resources/images/black.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="104.0" fitWidth="100.0" GridPane.rowIndex="4">
-                            <image>
-                                <Image url="@../resources/images/black.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="104.0" fitWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
-                            <image>
-                                <Image url="@../resources/images/black.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="104.0" fitWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                            <image>
-                                <Image url="@../resources/images/black.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="104.0" fitWidth="100.0" GridPane.rowIndex="6">
-                            <image>
-                                <Image url="@../resources/images/black.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="104.0" fitWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
-                            <image>
-                                <Image url="@../resources/images/black.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="104.0" fitWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
-                            <image>
-                                <Image url="@../resources/images/black.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="104.0" fitWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="7">
-                            <image>
-                                <Image url="@../resources/images/black.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="104.0" fitWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
-                            <image>
-                                <Image url="@../resources/images/black.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="104.0" fitWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
-                            <image>
-                                <Image url="@../resources/images/black.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="104.0" fitWidth="100.0" GridPane.columnIndex="5" GridPane.rowIndex="3">
-                            <image>
-                                <Image url="@../resources/images/black.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="104.0" fitWidth="100.0">
-                            <image>
-                                <Image url="@../resources/images/black.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="104.0" fitWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="6">
-                            <image>
-                                <Image url="@../resources/images/black.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="104.0" fitWidth="100.0" GridPane.columnIndex="5" GridPane.rowIndex="7">
-                            <image>
-                                <Image url="@../resources/images/black.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="104.0" fitWidth="100.0" GridPane.columnIndex="6" GridPane.rowIndex="6">
-                            <image>
-                                <Image url="@../resources/images/black.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="104.0" fitWidth="100.0" GridPane.columnIndex="6" GridPane.rowIndex="4">
-                            <image>
-                                <Image url="@../resources/images/black.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="104.0" fitWidth="100.0" GridPane.columnIndex="7" GridPane.rowIndex="3">
-                            <image>
-                                <Image url="@../resources/images/black.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="104.0" fitWidth="100.0" GridPane.columnIndex="7" GridPane.rowIndex="5">
-                            <image>
-                                <Image url="@../resources/images/black.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fitHeight="104.0" fitWidth="100.0" GridPane.columnIndex="7" GridPane.rowIndex="7">
-                            <image>
-                                <Image url="@../resources/images/black.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fx:id="peao1Jogador2" fitHeight="80.0" fitWidth="80.0" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="0" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="5" GridPane.rowIndex="0" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="6" GridPane.rowIndex="0" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="7" GridPane.rowIndex="0" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="7" GridPane.rowIndex="5" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="6" GridPane.rowIndex="6" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="7" GridPane.rowIndex="6" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="5" GridPane.rowIndex="7" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="6" GridPane.rowIndex="7" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="7" GridPane.rowIndex="7" />
+                        <ImageView fx:id="peao1Jogador2" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/peao.png" />
                             </image>
@@ -238,7 +142,7 @@
                                 <Image url="@../resources/images/pieces/peao.png" />
                             </image>
                         </ImageView>
-                        <ImageView fx:id="torre1Jogador2" fitHeight="80.0" fitWidth="80.0" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+                        <ImageView fx:id="torre1Jogador2" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/torre.png" />
                             </image>
@@ -278,82 +182,82 @@
                                 <Image url="@../resources/images/pieces/bispo.png" />
                             </image>
                         </ImageView>
-                        <ImageView fx:id="peao1Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                        <ImageView fx:id="peao1Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                             <image>
-                                <Image url="@../resources/images/pieces/two/bispo.png" />
+                                <Image url="@../resources/images/pieces/two/peao.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="peao2Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                             <image>
-                                <Image url="@../resources/images/pieces/two/bispo.png" />
+                                <Image url="@../resources/images/pieces/two/peao.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="peao3Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                             <image>
-                                <Image url="@../resources/images/pieces/two/bispo.png" />
+                                <Image url="@../resources/images/pieces/two/peao.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="peao4Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                             <image>
-                                <Image url="@../resources/images/pieces/two/bispo.png" />
+                                <Image url="@../resources/images/pieces/two/peao.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="peao5Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                             <image>
-                                <Image url="@../resources/images/pieces/two/bispo.png" />
+                                <Image url="@../resources/images/pieces/two/peao.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="peao6Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                             <image>
-                                <Image url="@../resources/images/pieces/two/bispo.png" />
+                                <Image url="@../resources/images/pieces/two/peao.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="peao7Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                             <image>
-                                <Image url="@../resources/images/pieces/two/bispo.png" />
+                                <Image url="@../resources/images/pieces/two/peao.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="peao8Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                             <image>
-                                <Image url="@../resources/images/pieces/two/bispo.png" />
+                                <Image url="@../resources/images/pieces/two/peao.png" />
                             </image>
                         </ImageView>
-                        <ImageView fx:id="torre1Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <ImageView fx:id="torre1Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/two/torre.png" />
                             </image>
                         </ImageView>
-                        <ImageView fx:id="torre2Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <ImageView fx:id="torre2Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/two/torre.png" />
                             </image>
                         </ImageView>
-                        <ImageView fx:id="cavalo1Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <ImageView fx:id="cavalo1Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/two/cavalo.png" />
                             </image>
                         </ImageView>
-                        <ImageView fx:id="cavalo2Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <ImageView fx:id="cavalo2Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/two/cavalo.png" />
                             </image>
                         </ImageView>
-                        <ImageView fx:id="bispo1Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <ImageView fx:id="bispo1Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/two/bispo.png" />
                             </image>
                         </ImageView>
-                        <ImageView fx:id="bispo2Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <ImageView fx:id="bispo2Jogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/two/bispo.png" />
                             </image>
                         </ImageView>
-                        <ImageView fx:id="reiJogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <ImageView fx:id="reiJogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/two/rei.png" />
                             </image>
                         </ImageView>
-                        <ImageView fx:id="rainhaJogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <ImageView fx:id="rainhaJogador1" fitHeight="80.0" fitWidth="80.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
                             <image>
                                 <Image url="@../resources/images/pieces/two/rainha.png" />
                             </image>
