@@ -13,26 +13,34 @@ import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
 import xadrez.model.pieces.*;
 
-/**
- *
- * @author newen
- */
 public class Board {
 
     /* Matriz de pecas do board */
     private Piece board[][];
     
-    private boolean pieceSelected = false;
-
+    private Player player1;
+    private Player player2;
+    private Player playerTime;
+    private boolean endGame;
+    
     /* 
      Contrutor da classe board
      */
-    public Board() {
+    public Board(Player player1, Player player2) {
+        this.endGame = false;
+        this.player1 = player1;
+        this.player2 = player2;
+        this.playerTime = player1;
+        this.setPlayerTime(player1);
         this.board = new Piece[8][8];
         this.clearBoard();
     }
     
-    public Board(Piece board[][]) {
+    public Board(Piece board[][], Player player1, Player player2) {
+        this.endGame = false;
+        this.player1 = player1;
+        this.player2 = player2;
+        this.playerTime = player2;
         this.board = board;
     }
 
@@ -96,7 +104,7 @@ public class Board {
 
     public Board getBoardClone() {
 
-        Board board = new Board();
+        Board board = new Board(this.player1, this.player2);
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -150,6 +158,14 @@ public class Board {
 
         return result;
     }
+    
+    public void alterPlayer() {
+        if(player1.getColor() == playerTime.getColor()){
+            playerTime = player2;
+        } else {
+            playerTime = player1;
+        }
+    }
 
     /**
      * @return the board
@@ -163,20 +179,62 @@ public class Board {
      */
     public void setBoard(Piece[][] board) {
         this.board = board;
+    }    
+
+    /**
+     * @return the player1
+     */
+    public Player getPlayer1() {
+        return player1;
     }
 
     /**
-     * @return the pieceSelected
+     * @param player1 the player1 to set
      */
-    public boolean isPieceSelected() {
-        return pieceSelected;
+    public void setPlayer1(Player player1) {
+        this.player1 = player1;
     }
 
     /**
-     * @param pieceSelected the pieceSelected to set
+     * @return the player2
      */
-    public void setPieceSelected(boolean pieceSelected) {
-        this.pieceSelected = pieceSelected;
+    public Player getPlayer2() {
+        return player2;
+    }
+
+    /**
+     * @param player2 the player2 to set
+     */
+    public void setPlayer2(Player player2) {
+        this.player2 = player2;
+    }
+
+    /**
+     * @return the playerTime
+     */
+    public Player getPlayerTime() {
+        return playerTime;
+    }
+
+    /**
+     * @param playerTime the playerTime to set
+     */
+    public void setPlayerTime(Player playerTime) {
+        this.playerTime = playerTime;
+    }
+
+    /**
+     * @return the endGame
+     */
+    public boolean isEndGame() {
+        return endGame;
+    }
+
+    /**
+     * @param endGame the endGame to set
+     */
+    public void setEndGame(boolean endGame) {
+        this.endGame = endGame;
     }
     
     

@@ -6,243 +6,229 @@
  * To change this template, choose Tools | Template Manager
  * and open the template in the editor.
  */
-
 package xadrez.model.pieces;
 
 import java.awt.Color;
 import java.util.*;
+import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import model.utils.TypeMove;
 import xadrez.model.game.Board;
-import xadrez.model.game.Chess;
 import xadrez.model.game.Piece;
 import xadrez.model.game.Position;
 
-/**
- *
- * @author newen
- */
 public class King extends Piece {
-    
+
     /* king attributes */
     boolean notMovedYet;
-    
-    /** Creates a new instance of King */
+
+    /**
+     * Creates a new instance of King
+     */
     public King(Color cor) {
-        super("King",cor);
+        super("King", cor);
     }
-    
-    /** Creates a new instance of King */
+
+    /**
+     * Creates a new instance of King
+     */
     public King(Color cor, Position pos, ImageView imageView, GridPane gridPane) {
-        super("King",cor,pos, imageView, gridPane);
+        super("King", cor, pos, imageView, gridPane);
         this.setNotMovedYet(true);
-        imageView.addEventHandler(MouseEvent.MOUSE_PRESSED, (MouseEvent e) -> {
 
-            EventHandler<MouseEvent> object_clicked = new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent e) {
-
-                    for (Node node : gridPane.getChildren()) {
-                        if (node.getBoundsInParent().contains(e.getSceneX(), e.getSceneY())) {
-                            System.out.println("Node: " + node + " at " + GridPane.getRowIndex(node) + "/" + GridPane.getColumnIndex(node));
-                        }
+        imageView.setPickOnBounds(true);
+        imageView.setOnMouseClicked((MouseEvent e) -> {
+            if (playerTime() && !endGame()) {
+                if (!this.isPieceRemoved()) {
+                    for (Position position : showPossibilities(this.getPosition())) {
+                        Pane pane = (Pane) getNodeByRowColumnIndex(position.getLinha(), position.getColuna(), gridPane);
+                        pane.getStyleClass().add("border");
                     }
-                    gridPane.removeEventFilter(MouseEvent.MOUSE_PRESSED, this);
+                    EventHandler<MouseEvent> object_clicked = new EventHandler<MouseEvent>() {
+                        @Override
+                        public void handle(MouseEvent e) {
+
+                            getEventClickGrid(gridPane, e, imageView);
+                            removeClassBorder(gridPane);
+                            gridPane.removeEventFilter(MouseEvent.MOUSE_PRESSED, this);
+                        }
+                    };
+
+                    gridPane.addEventFilter(MouseEvent.MOUSE_PRESSED, object_clicked);
                 }
-            };
+            }
 
-            gridPane.addEventFilter(MouseEvent.MOUSE_PRESSED, object_clicked);
-
-//            gridPane;
         });
     }
-    
+
     public boolean isNotMovedYet() {
         return notMovedYet;
     }
-    
+
     public void setNotMovedYet(boolean notMovedYet) {
         this.notMovedYet = notMovedYet;
     }
-    
-    /**
-     *  Retorna a relac�o de posi��es(caminho) a
-     * serem percorridas para alcan�ar o destino
-     */
-    public ArrayList <Position> getPath(Position destino,Chess chess){
-        ArrayList <Position> path = null;
-        Position posicaoAtual = this.getPosition();
-        
-        if (!destino.equals(posicaoAtual)) {
-            Board board = chess.getBoard();
-            Position roque2;
-            Position roque1;
-            Rook torre1 = null;
-            Rook torre2 = null;
-            Color corRei = this.getColor();
-            int offset;
-            Piece pi;
-            
-            /* verifica os pontos de roque, para pecas pretas e brancas */
-            if (corRei == Color.WHITE) {
-                /* rei branco */
-                if ( (pi = board.getPieceAtPosition(new Position(7,7))) != null && pi instanceof Rook) {
-                    torre1 = (Rook) board.getPieceAtPosition(new Position(7,7));
-                }
-                roque1 = new Position(7,6);
-                if ( (pi = board.getPieceAtPosition(new Position(7,0))) != null && pi instanceof Rook) {
-                    torre2 = (Rook) pi;
-                }
-                roque2 = new Position(7,2);
-            } else { /* rei preto  */
-                if ( (pi = board.getPieceAtPosition(new Position(0,7))) != null && pi instanceof Rook) {
-                    torre1 = (Rook) pi;
-                }
-                roque1 = new Position(0,6);
-                if ( (pi = board.getPieceAtPosition(new Position(0,0))) != null && pi instanceof Rook) {
-                    torre2 = (Rook) pi;
-                }
-                roque2 = new Position(0,2);
-            }
-            
-            
-            /* verifica se deseja-se fazer um roque */
-            /* verifica se o rei ainda n foi movido */
-            if (this.isNotMovedYet() && (destino.equals(roque1) ||
-                    destino.equals(roque2)) ) {
-                
-//                Board cloneBoard = board.getBoardClone();
-                
-                if ((destino.equals(roque1) && corRei == Color.WHITE)) {
-                    offset = 1; // vai mover p/ direita, pois � roque 1
-                    /* rei branco que fazer roque1 */
-                    /* verifica se a torre1 n foi movida ainda */
-                    if (torre1 != null && torre1.isNotMovedYet()) {
-                        /* torre1 n foi movida ainda, pode-se fazer o roque1 */
-                        /* verifica se as casas ao redor nao estao ocupadas (1 regra do roque) */
-                        if (board.isNullPosition(new Position(7,5)) && board.isNullPosition(new Position(7,6))) {
-                        /* - as casas 7,5 e 7,6 ja estao livres, porem nao podem estar sendo atacadas por uma
-                         *   peca adversaria (2a regra do roque)
-                         */
-                            if (!((chess.isAtackedByBlack(new Position(7,5),board)) ||
-                                    (chess.isAtackedByBlack(new Position(7,6),board)))) {
-                                /* posicoes nao estao sobe ataque, entao faz-se o roque */
-                                board.setPosition(this,new Position(7,6));
-                                this.setPosition(new Position(7,6));
-                                board.setPosition(torre1,new Position(7,5));
-                                torre1.setPosition(new Position(7,5));
-                                board.setPosition(null,posicaoAtual);
-                                board.setPosition(null,new Position(7,7));
-                                path = new ArrayList <Position>();
-                                path.add(new Position(99,99)); // posicao especial de roque
-                                return path;
-                            }
-                        }
-                    }
-                } else if ((destino.equals(roque1) && corRei == Color.BLACK)) {
-                    offset = 1;
-                    /* rei preto que fazer roque1 */
-                    if (torre1 != null && torre1.isNotMovedYet()) {
-                        /* torre1 n foi movida ainda, pode-se fazer o roque1 */
-                        /* torre1 n foi movida ainda, pode-se fazer o roque1 */
-                        /* verifica se as casas ao redor nao estao ocupadas */
-                        if (board.isNullPosition(new Position(0,5)) && board.isNullPosition(new Position(0,6))) {
-                            if (!((chess.isAtackedByWhite(new Position(0,5),board)) ||
-                                    (chess.isAtackedByWhite(new Position(0,6),board)))) {
-                                /* pode fazer o roque */
-                                board.setPosition(this,new Position(0,6));
-                                this.setPosition(new Position(0,6));
-                                board.setPosition(torre1,new Position(0,5));
-                                torre1.setPosition(new Position(0,5));
-                                board.setPosition(null,posicaoAtual);
-                                board.setPosition(null,new Position(0,7));
-                                path = new ArrayList <Position>();
-                                path.add(new Position(99,99)); // posicao especial de roque
-                                return path;
-                            }
-                        }
-                    }
-                } else if ((destino.equals(roque2) && corRei == Color.BLACK)) {
-                    offset = -1;
-                    /* rei preto que fazer roque2 */
-                    if (torre2 != null && torre2.isNotMovedYet()) {
-                        /* torre1 n foi movida ainda, pode-se fazer o roque2 */
-                        /* verifica se as casas ao redor nao estao ocupadas */
-                        if (board.isNullPosition(new Position(0,2)) && board.isNullPosition(new Position(0,3)) &&
-                                board.isNullPosition(new Position(0,1)) ) {
-                            if (!( (chess.isAtackedByWhite(new Position(0,1),board)) ||
-                                    (chess.isAtackedByWhite(new Position(0,2),board)) ||
-                                    (chess.isAtackedByWhite(new Position(0,3),board)) )) {
-                                
-                                /* pode fazer o roque */
-                                board.setPosition(this,new Position(0,2));
-                                this.setPosition(new Position(0,2));
-                                board.setPosition(torre2,new Position(0,3));
-                                torre2.setPosition(new Position(0,3));
-                                board.setPosition(null,new Position(0,0));
-                                board.setPosition(null,posicaoAtual);
-                                path = new ArrayList <Position>();
-                                path.add(new Position(99,99)); // posicao especial de roque
-                                return path;
-                            }
-                        }
-                    }
-                } else if ((destino.equals(roque2) && corRei == Color.WHITE)) {
-                    offset = -1;
-                    /* rei branco que fazer roque2 */
-                    if (torre1 != null && torre2.isNotMovedYet()) {
-                        /* torre1 n foi movida ainda, pode-se fazer o roque2 */
-                        /* torre1 n foi movida ainda, pode-se fazer o roque1 */
-                        /* verifica se as casas ao redor nao estao ocupadas */
-                        if (board.isNullPosition(new Position(7,1)) && board.isNullPosition(new Position(7,2)) &&
-                                board.isNullPosition(new Position(7,3)) ) {
-                            if (!( (chess.isAtackedByBlack(new Position(7,1),board)) ||
-                                    (chess.isAtackedByBlack(new Position(7,2),board)) ||
-                                    (chess.isAtackedByBlack(new Position(7,3),board)) )) {
-                                /* pode fazer o roque */
-                                board.setPosition(this,new Position(7,2));
-                                this.setPosition(new Position(7,2));
-                                board.setPosition(torre2,new Position(7,3));
-                                torre2.setPosition(new Position(7,3));
-                                board.setPosition(null,posicaoAtual);
-                                board.setPosition(null,new Position(7,0));
-                                path = new ArrayList <Position>();
-                                path.add(new Position(99,99)); // posicao especial de roque
-                                return path;
-                            }
-                        }
+
+    public ArrayList<Position> showPossibilities(Position actualPosition) {
+
+        ArrayList<Position> list = new ArrayList<Position>();
+
+        Position[][] possibilites = {
+            {new Position((actualPosition.getLinha() + TypeMove.UP.linha()), (actualPosition.getColuna() + TypeMove.UP.coluna()))},
+            {new Position((actualPosition.getLinha() + TypeMove.RIGHT.linha()), (actualPosition.getColuna() + TypeMove.RIGHT.coluna()))},
+            {new Position((actualPosition.getLinha() + TypeMove.LEFT.linha()), (actualPosition.getColuna() + TypeMove.LEFT.coluna()))},
+            {new Position((actualPosition.getLinha() + TypeMove.LEFT_DOWN.linha()), (actualPosition.getColuna() + TypeMove.LEFT_DOWN.coluna()))},
+            {new Position((actualPosition.getLinha() + TypeMove.LEFT_UP.linha()), (actualPosition.getColuna() + TypeMove.LEFT_UP.coluna()))},
+            {new Position((actualPosition.getLinha() + TypeMove.DOWN.linha()), (actualPosition.getColuna() + TypeMove.DOWN.coluna()))},
+            {new Position((actualPosition.getLinha() + TypeMove.RIGHT_UP.linha()), (actualPosition.getColuna() + TypeMove.RIGHT_UP.coluna()))},
+            {new Position((actualPosition.getLinha() + TypeMove.RIGHT_DOWN.linha()), (actualPosition.getColuna() + TypeMove.RIGHT_DOWN.coluna()))}
+        };
+
+        for (int i = 0; i < possibilites.length; i++) {
+            for (int j = 0; j < possibilites[0].length; j++) {
+                if (possibilites[i][j].getColuna() < 8 && possibilites[i][j].getColuna() > -1 && possibilites[i][j].getLinha() < 8 && possibilites[i][j].getLinha() > -1) {
+                    if (this.getBoard().isNullPosition(possibilites[i][j])) {
+                        list.add(possibilites[i][j]);
+                    } else if (this.getBoard().getBoard()[possibilites[i][j].getLinha()][possibilites[i][j].getColuna()].getColor() != this.getColor()) {
+                        list.add(possibilites[i][j]);
                     }
                 }
-                
-            } else { /* rei movido.. n faz-se roque */
-                int difX = Math.abs(destino.getLinha()-posicaoAtual.getLinha());
-                int difY = Math.abs(destino.getColuna()-posicaoAtual.getColuna());
-                
-                /* verifica se esta se movendo ao redor da casa atual */
-                if ( (((difX==1)&&(difY==0)) || ((difY==1)&&(difX==0))) || ((difX==1)&&(difY==1))) {
-                    path = new ArrayList <Position> ();
-                    path.add(destino);
-                }
-            }
-            if (path != null) {
-                this.setNotMovedYet(false);
             }
         }
-        return path;
+
+        return list;
+    }
+
+    public Node getNodeByRowColumnIndex(final int row, final int column, GridPane gridPane) {
+        Node result = null;
+        ObservableList<Node> childrens = gridPane.getChildren();
+
+        for (Node node : childrens) {
+            if (node instanceof Pane) {
+                if (gridPane.getRowIndex(node) == row && gridPane.getColumnIndex(node) == column && node.getId() == null) {
+                    result = node;
+                    break;
+                }
+            }
+        }
+
+        return result;
+    }
+
+    public Node removeClassBorder(GridPane gridPane) {
+        Node result = null;
+        ObservableList<Node> childrens = gridPane.getChildren();
+
+        for (Node node : childrens) {
+            if (node instanceof Pane) {
+                node.getStyleClass().clear();
+            }
+        }
+
+        return result;
+    }
+
+    public void getEventClickGrid(GridPane gridPane, MouseEvent e, ImageView imageView) {
+        for (Node pane : gridPane.getChildren()) {
+            if (pane instanceof Pane) {
+                if (pane.getBoundsInParent().contains(e.getSceneX(), e.getSceneY())) {
+
+                    if (this.checkDestiny(this.getPosition(), new Position(GridPane.getRowIndex(pane), GridPane.getColumnIndex(pane)))) {
+                        if (!this.getBoard().isNullPosition(new Position(GridPane.getRowIndex(pane), GridPane.getColumnIndex(pane)))) {
+                            if (this.getBoard().getBoard()[GridPane.getRowIndex(pane)][GridPane.getColumnIndex(pane)].getColor() != this.getColor()) {
+                                if (getImageView(GridPane.getRowIndex(pane), GridPane.getColumnIndex(pane), gridPane).getId().contains("rei")) {
+                                    final Stage primaryStage = new Stage();
+                                    final Stage dialog = new Stage();
+                                    dialog.initModality(Modality.APPLICATION_MODAL);
+                                    dialog.initOwner(primaryStage);
+                                    VBox dialogVbox = new VBox(20);
+                                    dialogVbox.getChildren().add(new Text("Fim de Jogo"));
+                                    dialogVbox.getChildren().add(new Text("Jogador vencedor: " + this.getBoard().getPlayerTime().getName()));
+                                    Scene dialogScene = new Scene(dialogVbox, 200, 100);
+                                    dialog.setScene(dialogScene);
+                                    dialog.show();
+                                    this.getBoard().setEndGame(true);
+                                }
+                                gridPane.getChildren().remove(getImageView(GridPane.getRowIndex(pane), GridPane.getColumnIndex(pane), gridPane));
+                                this.getBoard().getBoard()[GridPane.getRowIndex(pane)][GridPane.getColumnIndex(pane)].setPieceRemoved(true);
+                            }
+                        }
+                        gridPane.getChildren().remove(imageView);
+                        gridPane.add(imageView, GridPane.getColumnIndex(pane), GridPane.getRowIndex(pane));
+                        this.getBoard().setNullPosition(this.getPosition());
+                        this.getBoard().setPosition(this, new Position(GridPane.getRowIndex(pane), GridPane.getColumnIndex(pane)));
+                        this.setPosition(new Position(GridPane.getRowIndex(pane), GridPane.getColumnIndex(pane)));
+                        this.getBoard().alterPlayer();
+                    }
+
+                    break;
+                }
+            }
+        }
+    }
+
+    public boolean checkDestiny(Position actualPosition, Position destino) {
+
+        Position[][] possibilites = {
+            {new Position((actualPosition.getLinha() + TypeMove.UP.linha()), (actualPosition.getColuna() + TypeMove.UP.coluna()))},
+            {new Position((actualPosition.getLinha() + TypeMove.RIGHT.linha()), (actualPosition.getColuna() + TypeMove.RIGHT.coluna()))},
+            {new Position((actualPosition.getLinha() + TypeMove.LEFT.linha()), (actualPosition.getColuna() + TypeMove.LEFT.coluna()))},
+            {new Position((actualPosition.getLinha() + TypeMove.LEFT_DOWN.linha()), (actualPosition.getColuna() + TypeMove.LEFT_DOWN.coluna()))},
+            {new Position((actualPosition.getLinha() + TypeMove.LEFT_UP.linha()), (actualPosition.getColuna() + TypeMove.LEFT_UP.coluna()))},
+            {new Position((actualPosition.getLinha() + TypeMove.DOWN.linha()), (actualPosition.getColuna() + TypeMove.DOWN.coluna()))},
+            {new Position((actualPosition.getLinha() + TypeMove.RIGHT_UP.linha()), (actualPosition.getColuna() + TypeMove.RIGHT_UP.coluna()))},
+            {new Position((actualPosition.getLinha() + TypeMove.RIGHT_DOWN.linha()), (actualPosition.getColuna() + TypeMove.RIGHT_DOWN.coluna()))}
+        };
+
+        for (int i = 0; i < possibilites.length; i++) {
+            for (int j = 0; j < possibilites[0].length; j++) {
+                if (destino.equals(possibilites[i][j])) {
+                    if (possibilites[i][j].getColuna() < 8 && possibilites[i][j].getColuna() > -1 && possibilites[i][j].getLinha() < 8 && possibilites[i][j].getLinha() > -1) {
+                        if (this.getBoard().isNullPosition(possibilites[i][j])) {
+                            return true;
+                        } else if (this.getBoard().getBoard()[possibilites[i][j].getLinha()][possibilites[i][j].getColuna()].getColor() != this.getColor()) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public Node getImageView(final int row, final int column, GridPane gridPane) {
+        Node result = null;
+        ObservableList<Node> childrens = gridPane.getChildren();
+
+        for (Node node : childrens) {
+            if (node instanceof ImageView) {
+
+                if (gridPane.getRowIndex(node) == row && gridPane.getColumnIndex(node) == column) {
+                    result = node;
+                    break;
+                }
+            }
+        }
+
+        return result;
     }
     
-    
-    /* Rei nao utiliza este metodo */
-    public ArrayList <Position> getPath(Position destino) {
-        return null;
+    public boolean playerTime() {
+        return this.getBoard().getPlayerTime().getColor() == this.getColor();
     }
-    public ArrayList <Position> getPath(Position destino,Board board) {
-        return null;
+
+    public boolean endGame() {
+        return this.getBoard().isEndGame();
     }
-    
-    /* Implementar metodos das jogadas possiveis.. getters and setters etc */
-    
 }

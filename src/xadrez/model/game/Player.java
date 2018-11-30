@@ -12,10 +12,6 @@ package xadrez.model.game;
 import java.awt.Color;
 import model.utils.Time;
 
-/**
- *
- * @author Marcelo Gonzaga
- */
 public class Player {
     
     /* Player's name */

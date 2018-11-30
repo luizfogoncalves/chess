@@ -13,10 +13,6 @@ import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-/**
- *
- * @author luizj
- */
 public class Xadrez extends Application {
 
     @Override

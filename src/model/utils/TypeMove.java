@@ -1,15 +1,5 @@
 package model.utils;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author luizj
- */
 public enum TypeMove {
     
     UP (-1,0),

@@ -15,8 +15,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
+import model.utils.Time;
 import xadrez.model.game.Board;
 import xadrez.model.game.Piece;
+import xadrez.model.game.Player;
 import xadrez.model.game.Position;
 import xadrez.model.pieces.Bishop;
 import xadrez.model.pieces.King;
@@ -25,11 +27,6 @@ import xadrez.model.pieces.Pawn;
 import xadrez.model.pieces.Queen;
 import xadrez.model.pieces.Rook;
 
-/**
- * FXML Controller class
- *
- * @author luizj
- */
 public class BoardController implements Initializable {
 
     @FXML
@@ -64,15 +61,7 @@ public class BoardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        this.board = new Board();
-
-//        GetNodeInGrid()
-//        gridPane.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
-//            GridPane source = (GridPane) e.getSource();
-//            System.out.println(GridPane.getColumnIndex(torre1Jogador1));
-//        });
-        System.out.println(this.gridPane.getChildren());
-        // TODO
+        this.board = new Board(new Player("Jogador 1", Color.WHITE, new Time()), new Player("Jogador 2", Color.BLACK, new Time()));
 
         this.loadArrayImage();
 
@@ -103,7 +92,7 @@ public class BoardController implements Initializable {
         // Cria os Reis e os coloca em uma posi��o, o Rei tbm recebe a sua posi��o no board
         this.createPieces(new King(Color.WHITE, new Position(0, 4), this.reiJogador1, this.gridPane));
         this.createPieces(new King(Color.BLACK, new Position(7, 3), this.reiJogador2, this.gridPane));
-        
+
         this.board.setBoard(this.matrizPecas);
 
         this.addBoard();

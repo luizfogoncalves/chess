@@ -9,10 +9,6 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import xadrez.model.game.Piece;
 
-/**
- *
- * @author newen
- */
 public abstract class Piece {
     
     /* Nome da peca (Ex: Pawn, King, etc ) */
@@ -53,14 +49,6 @@ public abstract class Piece {
         this.imageView = imageView;
         this.gridPane = gridPane;
     }
-    
-    /** 
-     *  Retorna a relac�o de posi��es(caminho) a 
-     * serem percorridas para alcan�ar o destino 
-     */
-    public abstract ArrayList <Position> getPath(Position destino);
-    public abstract ArrayList <Position> getPath(Position destino,Board board);
-    public abstract ArrayList <Position> getPath(Position destino,Chess chess);
        
     /**
      * 

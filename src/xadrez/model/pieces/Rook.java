@@ -13,20 +13,20 @@ import java.util.*;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import model.utils.TypeMove;
 import xadrez.model.game.Board;
-import xadrez.model.game.Chess;
 import xadrez.model.game.Piece;
 import xadrez.model.game.Position;
 
-/**
- *
- * @author newen
- */
 public class Rook extends Piece {
 
     /* rook attributes */
@@ -48,22 +48,24 @@ public class Rook extends Piece {
 
         imageView.setPickOnBounds(true);
         imageView.setOnMouseClicked((MouseEvent e) -> {
-            if (!this.isPieceRemoved()) {
-                for (Position position : showPossibilities(this.getPosition())) {
-                    Pane pane = (Pane) getNodeByRowColumnIndex(position.getLinha(), position.getColuna(), gridPane);
-                    pane.getStyleClass().add("border");
-                }
-                EventHandler<MouseEvent> object_clicked = new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent e) {
-
-                        getEventClickGrid(gridPane, e, imageView);
-                        removeClassBorder(gridPane);
-                        gridPane.removeEventFilter(MouseEvent.MOUSE_PRESSED, this);
+            if (playerTime() && !endGame()) {
+                if (!this.isPieceRemoved()) {
+                    for (Position position : showPossibilities(this.getPosition())) {
+                        Pane pane = (Pane) getNodeByRowColumnIndex(position.getLinha(), position.getColuna(), gridPane);
+                        pane.getStyleClass().add("border");
                     }
-                };
+                    EventHandler<MouseEvent> object_clicked = new EventHandler<MouseEvent>() {
+                        @Override
+                        public void handle(MouseEvent e) {
 
-                gridPane.addEventFilter(MouseEvent.MOUSE_PRESSED, object_clicked);
+                            getEventClickGrid(gridPane, e, imageView);
+                            removeClassBorder(gridPane);
+                            gridPane.removeEventFilter(MouseEvent.MOUSE_PRESSED, this);
+                        }
+                    };
+
+                    gridPane.addEventFilter(MouseEvent.MOUSE_PRESSED, object_clicked);
+                }
             }
 
         });
@@ -76,89 +78,49 @@ public class Rook extends Piece {
     public void setNotMovedYet(boolean notMovedYet) {
         this.notMovedYet = notMovedYet;
     }
-
-    /**
-     * Retorna a relac�o de posi��es(caminho) a serem percorridas para alcan�ar
-     * o destino
-     */
-    public ArrayList<Position> getPath(Position destino) {
-        ArrayList<Position> path = null;
-        Position posicaoAtual = this.getPosition();
-        if (!destino.equals(posicaoAtual)) {
-            int offset = 1;
-            /* verifica se ele nao esta querendo se mover para a mesma
-             * posicao atual (no caso da verificacao de xeque-mate */
-
- /* movimento vertical da torre */
-            if (destino.getColuna() == posicaoAtual.getColuna()) {
-                /* cria o caminho */
-                path = new ArrayList<Position>();
-
-                /* determina a direcao a ser percorrida */
-                if (destino.getLinha() < posicaoAtual.getLinha()) {
-                    offset = -1;
-                }
-
-                /* adiciona as posicoes do caminho */
-                int x;
-                for (x = posicaoAtual.getLinha() + offset; x != destino.getLinha(); x += offset) {
-                    path.add(new Position(x, destino.getColuna()));
-                }
-                path.add(new Position(x, destino.getColuna()));
-            } else if (destino.getLinha() == posicaoAtual.getLinha()) {
-                /* movimento horizontal da torre */
- /* cria o caminho */
-                path = new ArrayList<Position>();
-
-                /* determina a direcao a ser percorrida */
-                if (destino.getColuna() < posicaoAtual.getColuna()) {
-                    offset *= -1;
-                }
-
-                /* adiciona as posicoes do caminho */
-                int y;
-                for (y = posicaoAtual.getColuna() + offset; y != destino.getColuna(); y += offset) {
-                    path.add(new Position(destino.getLinha(), y));
-                }
-                path.add(new Position(destino.getLinha(), y));
-            }
-        }
-
-        if (path != null) {
-            this.setNotMovedYet(false);
-        }
-        return path;
-    }
-
-    /* Torre nao utiliza este metodo */
-    public ArrayList<Position> getPath(Position destino, Board board) {
-        return null;
-    }
-
-    public ArrayList<Position> getPath(Position destino, Chess chess) {
-        return null;
-    }
-
+    
     public ArrayList<Position> showPossibilities(Position actualPosition) {
 
         ArrayList<Position> list = new ArrayList<Position>();
 
         Position[][] possibilites = {
-            {new Position((actualPosition.getLinha() + TypeMove.UP.linha()), (actualPosition.getColuna() + TypeMove.UP.coluna()))},
-            {new Position((actualPosition.getLinha() + TypeMove.RIGHT.linha()), (actualPosition.getColuna() + TypeMove.RIGHT.coluna()))},
-            {new Position((actualPosition.getLinha() + TypeMove.LEFT.linha()), (actualPosition.getColuna() + TypeMove.LEFT.coluna()))},
-            {new Position((actualPosition.getLinha() + TypeMove.DOWN.linha()), (actualPosition.getColuna() + TypeMove.DOWN.coluna()))},
+            {new Position((actualPosition.getLinha()), (actualPosition.getColuna()))},
+            {new Position((actualPosition.getLinha()), (actualPosition.getColuna()))},
+            {new Position((actualPosition.getLinha()), (actualPosition.getColuna()))},
+            {new Position((actualPosition.getLinha()), (actualPosition.getColuna()))},};
+
+        TypeMove[][] movements = {
+            {TypeMove.UP},
+            {TypeMove.RIGHT},
+            {TypeMove.LEFT},
+            {TypeMove.DOWN}
         };
 
+        int cont = 1;
+        boolean move = true;
         for (int i = 0; i < possibilites.length; i++) {
             for (int j = 0; j < possibilites[0].length; j++) {
-                if (possibilites[i][j].getColuna() < 8 && possibilites[i][j].getColuna() > -1 && possibilites[i][j].getLinha() < 8 && possibilites[i][j].getLinha() > -1) {
-                    if (this.getBoard().isNullPosition(possibilites[i][j])) {
-                        list.add(possibilites[i][j]);
-                    } else if (this.getBoard().getBoard()[possibilites[i][j].getLinha()][possibilites[i][j].getColuna()].getColor() != this.getColor()) {
-                        list.add(possibilites[i][j]);
+                move = true;
+                Position pos;
+                cont = 1;
+                while (move) {
+                    if (possibilites[i][j].getColuna() + (movements[i][j].coluna() * cont) < 8 && possibilites[i][j].getColuna() + (movements[i][j].coluna() * cont) > -1 && possibilites[i][j].getLinha() + (movements[i][j].linha() * cont) < 8 && possibilites[i][j].getLinha() + (movements[i][j].linha() * cont) > -1) {
+                        if (this.getBoard().isNullPosition(new Position(possibilites[i][j].getLinha() + (movements[i][j].linha() * cont), possibilites[i][j].getColuna() + (movements[i][j].coluna() * cont)))) {
+                            pos = new Position(possibilites[i][j].getLinha() + (movements[i][j].linha() * cont), possibilites[i][j].getColuna() + (movements[i][j].coluna() * cont));
+                            list.add(pos);
+                        } else if (this.getBoard().getBoard()[possibilites[i][j].getLinha() + (movements[i][j].linha() * cont)][possibilites[i][j].getColuna() + (movements[i][j].coluna() * cont)].getColor() != this.getColor()) {
+                            pos = new Position(possibilites[i][j].getLinha() + (movements[i][j].linha() * cont), possibilites[i][j].getColuna() + (movements[i][j].coluna() * cont));
+                            list.add(pos);
+                            move = false;
+                        } else {
+                            move = false;
+                        }
+                    } else {
+                        move = false;
                     }
+                    cont++;
                 }
+
             }
         }
 
@@ -202,6 +164,19 @@ public class Rook extends Piece {
                     if (this.checkDestiny(this.getPosition(), new Position(GridPane.getRowIndex(pane), GridPane.getColumnIndex(pane)))) {
                         if (!this.getBoard().isNullPosition(new Position(GridPane.getRowIndex(pane), GridPane.getColumnIndex(pane)))) {
                             if (this.getBoard().getBoard()[GridPane.getRowIndex(pane)][GridPane.getColumnIndex(pane)].getColor() != this.getColor()) {
+                                if (getImageView(GridPane.getRowIndex(pane), GridPane.getColumnIndex(pane), gridPane).getId().contains("rei")) {
+                                    final Stage primaryStage = new Stage();
+                                    final Stage dialog = new Stage();
+                                    dialog.initModality(Modality.APPLICATION_MODAL);
+                                    dialog.initOwner(primaryStage);
+                                    VBox dialogVbox = new VBox(20);
+                                    dialogVbox.getChildren().add(new Text("Fim de Jogo"));
+                                    dialogVbox.getChildren().add(new Text("Jogador vencedor: " + this.getBoard().getPlayerTime().getName()));
+                                    Scene dialogScene = new Scene(dialogVbox, 200, 100);
+                                    dialog.setScene(dialogScene);
+                                    dialog.show();
+                                    this.getBoard().setEndGame(true);
+                                }
                                 gridPane.getChildren().remove(getImageView(GridPane.getRowIndex(pane), GridPane.getColumnIndex(pane), gridPane));
                                 this.getBoard().getBoard()[GridPane.getRowIndex(pane)][GridPane.getColumnIndex(pane)].setPieceRemoved(true);
                             }
@@ -211,6 +186,7 @@ public class Rook extends Piece {
                         this.getBoard().setNullPosition(this.getPosition());
                         this.getBoard().setPosition(this, new Position(GridPane.getRowIndex(pane), GridPane.getColumnIndex(pane)));
                         this.setPosition(new Position(GridPane.getRowIndex(pane), GridPane.getColumnIndex(pane)));
+                        this.getBoard().alterPlayer();
                     }
 
                     break;
@@ -221,25 +197,61 @@ public class Rook extends Piece {
 
     public boolean checkDestiny(Position actualPosition, Position destino) {
 
-        Position[][] possibilites = {
-            {new Position((actualPosition.getLinha() + TypeMove.UP.linha()), (actualPosition.getColuna() + TypeMove.UP.coluna()))},
-            {new Position((actualPosition.getLinha() + TypeMove.RIGHT.linha()), (actualPosition.getColuna() + TypeMove.RIGHT.coluna()))},
-            {new Position((actualPosition.getLinha() + TypeMove.RIGHT.linha()), (actualPosition.getColuna() + TypeMove.RIGHT.coluna()))},
-            {new Position((actualPosition.getLinha() + TypeMove.DOWN.linha()), (actualPosition.getColuna() + TypeMove.DOWN.coluna()))},
-        };
+        int offset = 1;
+        /* verifica se ele nao esta querendo se mover para a mesma
+             * posicao atual (no caso da verificacao de xeque-mate */
 
-        for (int i = 0; i < possibilites.length; i++) {
-            for (int j = 0; j < possibilites[0].length; j++) {
-                if (destino.equals(possibilites[i][j])) {
-                    if (possibilites[i][j].getColuna() < 8 && possibilites[i][j].getColuna() > -1 && possibilites[i][j].getLinha() < 8 && possibilites[i][j].getLinha() > -1) {
-                        if (this.getBoard().isNullPosition(possibilites[i][j])) {
-                            return true;
-                        } else if (this.getBoard().getBoard()[possibilites[i][j].getLinha()][possibilites[i][j].getColuna()].getColor() != this.getColor()) {
-                            return true;
-                        }
-                    }
-                }
+ /* movimento vertical da torre */
+        if (destino.getColuna() == actualPosition.getColuna()) {
+            /* cria o caminho */
+//            path = new ArrayList<Position>();
+
+            /* determina a direcao a ser percorrida */
+            if (destino.getLinha() < actualPosition.getLinha()) {
+                offset = -1;
             }
+
+            /* adiciona as posicoes do caminho */
+            if (this.getBoard().isNullPosition(destino)) {
+                int x;
+                for (x = actualPosition.getLinha() + offset; x != destino.getLinha(); x += offset) {
+                    return true;
+                }
+                return true;
+            } else if (this.getBoard().getBoard()[actualPosition.getLinha()][actualPosition.getColuna()].getColor() != this.getBoard().getBoard()[destino.getLinha()][destino.getColuna()].getColor()) {
+                int x;
+                for (x = actualPosition.getLinha() + offset; x != destino.getLinha(); x += offset) {
+                    return true;
+                }
+                return true;
+            }
+
+        } else if (destino.getLinha()
+                == actualPosition.getLinha()) {
+            /* movimento horizontal da torre */
+ /* cria o caminho */
+//            path = new ArrayList<Position>();
+
+            /* determina a direcao a ser percorrida */
+            if (destino.getColuna() < actualPosition.getColuna()) {
+                offset *= -1;
+            }
+
+            /* adiciona as posicoes do caminho */
+            if (this.getBoard().isNullPosition(destino)) {
+                int y;
+                for (y = actualPosition.getColuna() + offset; y != destino.getColuna(); y += offset) {
+                    return true;
+                }
+                return true;
+            } else if (this.getBoard().getBoard()[actualPosition.getLinha()][actualPosition.getColuna()].getColor() != this.getBoard().getBoard()[destino.getLinha()][destino.getColuna()].getColor()) {
+                int y;
+                for (y = actualPosition.getColuna() + offset; y != destino.getColuna(); y += offset) {
+                    return true;
+                }
+                return true;
+            }
+
         }
 
         return false;
@@ -262,5 +274,11 @@ public class Rook extends Piece {
         return result;
     }
 
-    /* Implementar metodos das jogadas possiveis.. getters and setters etc */
+    public boolean playerTime() {
+        return this.getBoard().getPlayerTime().getColor() == this.getColor();
+    }
+    
+    public boolean endGame() {
+        return this.getBoard().isEndGame();
+    }
 }
